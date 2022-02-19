@@ -1,9 +1,7 @@
 @echo off
 chcp 65001 >nul
 for /f "tokens=2 delims=:" %%d in ('ipconfig ^| find "IPv4"') do set intip=%%d
-For /f %%b in (
-  'powershell -nop -c "(Invoke-RestMethod http://api.ipify.org)"'
-) Do Set ExtIP=%%b
+For /f %%b in ('powershell -nop -c "(Invoke-RestMethod http://api.ipify.org)"') Do Set ExtIP=%%b
 echo.
 :main
 set input=""
