@@ -9,31 +9,25 @@ set /p input="vindicta > "
 
 if /I "%input%" EQU "help" (
 echo.
-echo  ╔══════════════╗  ╔═══════════════════════════╗
-echo  ║ Information  ║  ║        Description        ║
-echo  ║  ---------   ║  ║       -------------       ║
-echo  ║ getinfo      ║  ║ Displays System Info      ║
-echo  ║ geolocate    ║  ║ Displays Geolocation Info ║
-echo  ║ users        ║  ║ Displays System Users     ║
-echo  ╚══════════════╝  ╚═══════════════════════════╝
+echo   Information            Description        
+echo    ---------            -------------       
+echo   getinfo         Displays System Info      
+echo   geolocate       Displays Geolocation Info 
+echo   users           Displays System Users     
 echo.
-echo  ╔══════════════╗  ╔═══════════════════════════╗
-echo  ║   Password   ║  ║        Description        ║
-echo  ║  ----------  ║  ║       -------------       ║
-echo  ║ wifipass     ║  ║ Displays Wifi Passwords   ║
-echo  ║ tokengrab    ║  ║ Discord Token Grabber     ║
-echo  ║ winphish     ║  ║ Windows Password Phish    ║
-echo  ╚══════════════╝  ╚═══════════════════════════╝
+echo     Password             Description        
+echo    ----------           -------------       
+echo   wifipass        Displays Wifi Passwords   
+echo   tokengrab       Discord Token Grabber     
+echo   winphish        Windows Password Phish    
 echo.
-echo  ╔══════════════╗  ╔═══════════════════════════╗
-echo  ║   Control    ║  ║        Description        ║
-echo  ║  ---------   ║  ║       -------------       ║
-echo  ║ shell        ║  ║ Remote Shell              ║
-echo  ║ vncinject    ║  ║ Injects Reverse Vnc       ║
-echo  ║ msg          ║  ║ Sends MessageBox          ║
-echo  ║ website      ║  ║ Visits Website            ║
-echo  ║ shutdown     ║  ║ System Shutdown           ║
-echo  ╚══════════════╝  ╚═══════════════════════════╝
+echo     Control              Description        
+echo    ---------            -------------       
+echo   shell           Remote Shell              
+echo   vncinject       Injects Reverse Vnc       
+echo   msg             Sends MessageBox          
+echo   website         Visits Website            
+echo   shutdown        System Shutdown           
 echo.
 goto input
 )
